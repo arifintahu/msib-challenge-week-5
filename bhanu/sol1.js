@@ -1,11 +1,10 @@
 function asynchronousRequest(args) {
     return new Promise((resolve, reject) => {
         if (!args) {
-            return reject(new Error('Whoa! Something went wrong.'));
+            reject(new Error('Whoa! Something went wrong.'));
         } else {
             setTimeout(() => {
-                const response = { body: args + ' ' + Math.floor(Math.random() * 10) };
-                resolve(response);
+                resolve({ body: args + ' ' + Math.floor(Math.random() * 10) });
             }, 500);
         }
     });
@@ -22,7 +21,7 @@ async function promiseHell() {
         const response3 = await asynchronousRequest(null);
         console.log(response3.body);
     } catch (error) {
-        console.log(error);
+        console.log(error)
     }
 }
 
