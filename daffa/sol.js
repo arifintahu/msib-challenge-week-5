@@ -4,7 +4,7 @@ function asynchronousRequest(args) {
       reject("ERROR");
     } else {
       setTimeout(function () {
-        resolve(null, { body: args + " " + Math.floor(Math.random() * 10) });
+        resolve({ body: args + " " + Math.floor(Math.random() * 10) });
       }, 500);
     }
   });
